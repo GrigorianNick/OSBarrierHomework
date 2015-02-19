@@ -18,11 +18,6 @@ void Barrier::enq() {
 			Max::data = Max::lag;
 			Max::lag = NULL;
 			Max::lag = (int*)malloc(sizeof(int) * (Max::data_size/2));
-			cout << "Max::data " << Max::data[0];
-			for (int i = 1; i < Max::data_size; i++) {
-				cout << ", " << Max::data[i];
-			}
-			cout << endl;
 		}
 		pthread_mutex_unlock(&(this->gate_mutex));
 	}
