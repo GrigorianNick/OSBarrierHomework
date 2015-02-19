@@ -1,3 +1,15 @@
+/* main.cpp
+ *
+ * Author: Nicholas Grigorian
+ * CompID: ngg3vm
+ *
+ * Compile:
+ * `make`	: compiles max binary
+ * `make gen`	: creates a txt file with 4096 random numbers
+ * `make run`	: compiles max and gen binaries, creates a txt file with 4096 random numbers, and pipes the random numbers into max.
+ * `make clean`	: cleans up the working directory.
+ */
+
 #include <iostream>
 #include <pthread.h>
 #include <string>
@@ -6,8 +18,10 @@
 
 using namespace std;
 
+// The recursive function that actually finds the largest number.
 void *compare(void *arg) {
 	Thread * thread = (Thread*)arg;
+	// Copying the highest of the comparators in Max::data to Max::lag.
 	if (Max::data[2 * thread->thread_id] > Max::data[(2 * thread->thread_id) + 1]) {
 		Max::lag[thread->thread_id] = Max::data[2 * thread->thread_id];
 	}
