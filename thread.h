@@ -12,7 +12,5 @@ struct Thread {
 		int barrier_counter;
 		int thread_id;
 		Thread(int id);
-		void subscribe(Barrier* barrier);
-		//void run();
-		//static void* compare(void* This);
+		void subscribe(Barrier* barrier); // Keep track of barriers we need to work through
 };

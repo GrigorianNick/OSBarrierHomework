@@ -14,7 +14,7 @@ void Barrier::enq() {
 		// Shift Thread.lag down into Thread.data and reprep Thread.lag
 		if (Max::data_size > 1) { // We don't want prep Thread.lag to 0
 			Max::data_size /= 2;
-			//free(Max::data);
+			free(Max::data);
 			Max::data = Max::lag;
 			Max::lag = NULL;
 			Max::lag = (int*)malloc(sizeof(int) * (Max::data_size/2));

@@ -6,10 +6,6 @@
 
 using namespace std;
 
-/*int* Max::data;
-int* Max::lag;
-int Max::data_size;*/
-
 void *compare(void *arg) {
 	Thread * thread = (Thread*)arg;
 	if (Max::data[2 * thread->thread_id] > Max::data[(2 * thread->thread_id) + 1]) {
